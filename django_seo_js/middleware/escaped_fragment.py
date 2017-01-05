@@ -1,3 +1,5 @@
+from django.utils.deprecation import MiddlewareMixin
+
 from django_seo_js import settings
 from django_seo_js.backends import SelectedBackend
 from django_seo_js.helpers import request_should_be_ignored
@@ -6,7 +8,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class EscapedFragmentMiddleware(SelectedBackend):
+class EscapedFragmentMiddleware(MiddlewareMixin, SelectedBackend):
     def process_request(self, request):
         if not settings.ENABLED:
             return
