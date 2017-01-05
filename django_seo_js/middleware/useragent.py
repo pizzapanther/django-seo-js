@@ -1,3 +1,5 @@
+from django.utils.deprecation import MiddlewareMixin
+
 import re
 from django_seo_js import settings
 from django_seo_js.backends import SelectedBackend
