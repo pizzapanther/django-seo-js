@@ -9,7 +9,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-class UserAgentMiddleware(SelectedBackend):
+class UserAgentMiddleware(MiddlewareMixin, SelectedBackend):
     def __init__(self, *args, **kwargs):
         super(UserAgentMiddleware, self).__init__(*args, **kwargs)
         regex_str = "|".join(settings.USER_AGENTS)
